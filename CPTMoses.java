@@ -12,6 +12,7 @@ public class CPTMoses{
 		//Background Image
 		BufferedImage imgMath = con.loadImage("math.jpg");
 		con.drawImage(imgMath,0,0);
+		BufferedImage imgRick = con.loadImage("rick.jpg");
 		
 		//Input Files
 		TextInputFile Linear = new TextInputFile("linear.txt");
@@ -26,6 +27,7 @@ public class CPTMoses{
 		double dblChoice;
 		String strName;
 		double dblTestChoice;
+		String strChoice;
 		int intLinearQuestion;
 		int intLinearAnswer1;
 		int intLinearAnswer2;
@@ -42,14 +44,11 @@ public class CPTMoses{
 		String strShapesAnswer1;
 		String strShapesAnswer2;
 		String strShapesAnswer3;
+		String strStart;
+		double dblScore;
 		
 		//Read Text Files
 		while(Linear.eof() == false){
-			intLinearQuestion = Linear.readInt();
-			intLinearAnswer1 = Linear.readInt();
-			intLinearAnswer2 = Linear.readInt();
-			intLinearAnswer3 = Linear.readInt();
-		}while(Linear.eof() == false){
 			intQuadraticsQuestion = Quadratics.readInt();
 			intQuadraticsAnswer1 = Quadratics.readInt();
 			intQuadraticsAnswer2 = Quadratics.readInt();
@@ -76,7 +75,7 @@ public class CPTMoses{
 		dblChoice = con.readDouble();
 		
 		//Invalid Option
-		while(dblChoice != 1 && dblChoice != 1. && dblChoice != 2 && dblChoice != 2. && dblChoice != 3 && dblChoice != 3. && dblChoice != 4 && dblChoice != 4.){
+		while(dblChoice != 1 && dblChoice != 1. && dblChoice != 2 && dblChoice != 2. && dblChoice != 3 && dblChoice != 3. && dblChoice != 4 && dblChoice != 4. && dblChoice != 5){
 			con.println("Invalid. Please try again. ");
 			dblChoice = con.readDouble();
 		}
@@ -86,7 +85,12 @@ public class CPTMoses{
 			con.clear();
 			con.println("Please Enter Your Name: ");
 			strName = con.readLine();
-			con.println("Welcome, "+strName+", here are all the available tests. Please enter the option number to begin: ");
+			dblScore = (0);
+			if(strName.equalsIgnoreCase ("Rokutan") || strName.equalsIgnoreCase ("Moses")){
+				con.println("Congratulations "+strName+", you have entered hacker mode. You now have +100 scores");
+				dblScore = (100);
+			}
+			con.println("Welcome, "+strName+", here are all the available tests. Please enter the option number and the Enter Key to begin: ");
 			con.println("1. Linear");
 			con.println("2. Quadratics");
 			con.println("3. Trigonometry");
@@ -96,17 +100,56 @@ public class CPTMoses{
 					con.println("Invalid. Please try again. ");
 					dblTestChoice = con.readDouble();
 				}if(dblTestChoice == 1 || dblTestChoice == 1.){
+					strChoice = ("Linear Tests");
 					con.clear();
-					con.println("You have selected Linear Tests. ");
+					con.println("You Have Selected Linear Tests. Please Press x & Enter Keys To Begin");
+					strStart = con.readLine();
+					if(strStart.equalsIgnoreCase ("x") || strStart.equalsIgnoreCase("X")){
+						con.clear();
+						con.println(strName);
+						con.println(strChoice);
+						con.println("Score: "+(dblScore));
+						while(Linear.eof() == false){
+							intLinearQuestion = Linear.readInt();
+							intLinearAnswer1 = Linear.readInt();
+							intLinearAnswer2 = Linear.readInt();
+							intLinearAnswer3 = Linear.readInt();
+							con.println(intLinearQuestion);
+						}
+					}
 				}else if(dblTestChoice == 2 || dblTestChoice == 2.){
+					strChoice = ("Quadratics Tests");
 					con.clear();
-					con.println("You have selected Quadratics Tests. ");
+					con.println("You Have Selected Quadratics Tests. Please Press x & Enter Keys To Begin");
+					strStart = con.readLine();
+					if(strStart.equalsIgnoreCase ("x") || strStart.equalsIgnoreCase("X")){
+						con.clear();
+						con.println(strName);
+						con.println(strChoice);
+						con.println("Score: "+(dblScore));
+					}
 				}else if(dblTestChoice == 3 || dblTestChoice == 3.){
+					strChoice = ("Trigonometry Tests");
 					con.clear();
-					con.println("You have selected Trigonometry Tests");
+					con.println("You Have Selected Trigonometry Tests. Please Press x & Enter Keys To Begin");
+					strStart = con.readLine();
+					if(strStart.equalsIgnoreCase ("x") || strStart.equalsIgnoreCase("X")){
+						con.clear();
+						con.println(strName);
+						con.println(strChoice);
+						con.println("Score: "+(dblScore));
+					}
 				}else if(dblTestChoice == 4 || dblTestChoice == 4.){
+					strChoice = ("Shapes Tests");
 					con.clear();
-					con.println("You have selected Shapes Tests. ");
+					con.println("You Have Selected Shapes Tests. Please Press x & Enter Keys To Begin");
+					strStart = con.readLine();
+					if(strStart.equalsIgnoreCase ("x") || strStart.equalsIgnoreCase("X")){
+						con.clear();
+						con.println(strName);
+						con.println(strChoice);
+						con.println("Score: "+(dblScore));
+					}
 				}
 				
 		//Option 2 Functions
@@ -123,7 +166,25 @@ public class CPTMoses{
 		//Option 4 Functions
 		}else if(dblChoice == 4 || dblChoice == 4.){
 			con.clear();
-			con.println("You selected ");
+			con.println("You selected Help. ");
+		
+		//Secret Menu
+		}else if(dblChoice == 5){
+			con.clear();
+			con.drawImage(imgRick,0,0);
+			con.println("Never Gonna Give You Up");
+			con.sleep(1000);
+			con.println("Never Gonna Let You Down");
+			con.sleep(1000);
+			con.println("Never Gonna Run Around And Desert You");
+			con.sleep(1500);
+			con.println("Never Gonna Make You Cry");
+			con.sleep(1000);
+			con.println("Never Gonna Say Goodbye");
+			con.sleep(1000);
+			con.println("Never Gonna Tell a Lie And Hurt You");
+			con.println("");
+			con.println("Haha You've Been Rickrolled. ");
 		}
 		
 		//Close Text Files
