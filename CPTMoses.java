@@ -28,9 +28,9 @@ public class CPTMoses{
 		String strName;
 		double dblTestChoice;
 		String strChoice;
-		int intLinearQuestion;
+		String strLinearQuestion;
 		int intLinearAnswer1;
-		int intLinearAnswer2;
+		String strLinearAnswer2;
 		int intLinearAnswer3;
 		int intQuadraticsQuestion;
 		int intQuadraticsAnswer1;
@@ -71,7 +71,7 @@ public class CPTMoses{
 		con.println("2. View Scores");
 		con.println("3. Quit");
 		con.println("4. Help");
-		con.println("Please Enter The Option Number: ");
+		con.println("Please Enter Option Number Then Press Enter Key: ");
 		dblChoice = con.readDouble();
 		
 		//Invalid Option
@@ -110,11 +110,14 @@ public class CPTMoses{
 						con.println(strChoice);
 						con.println("Score: "+(dblScore));
 						while(Linear.eof() == false){
-							intLinearQuestion = Linear.readInt();
+							strLinearQuestion = Linear.readLine();
 							intLinearAnswer1 = Linear.readInt();
-							intLinearAnswer2 = Linear.readInt();
+							strLinearAnswer2 = Linear.readLine();
 							intLinearAnswer3 = Linear.readInt();
-							con.println(intLinearQuestion);
+							con.println(strLinearQuestion);
+							con.println(intLinearAnswer1);
+							con.println(strLinearAnswer2);
+							con.println(intLinearAnswer3);
 						}
 					}
 				}else if(dblTestChoice == 2 || dblTestChoice == 2.){
