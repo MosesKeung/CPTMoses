@@ -29,41 +29,30 @@ public class CPTMoses{
 		double dblTestChoice;
 		String strChoice;
 		String strLinearQuestion;
-		int intLinearAnswer1;
-		String strLinearAnswer2;
-		int intLinearAnswer3;
-		int intQuadraticsQuestion;
-		int intQuadraticsAnswer1;
-		int intQuadraticsAnswer2;
-		int intQuadraticsAnswer3;
-		int intTrigsQuestion;
-		int intTrigsAnswer1;
-		int intTrigsAnswer2;
-		int intTrigsAnswer3;
+		String strLinearAnswer;
+		String strQuadraticsQuestion;
+		String strQuadraticsAnswer1;
+		String strQuadraticsAnswer2;
+		String strQuadraticsAnswer3;
+		String strTrigsQuestion;
+		String strTrigsAnswer1;
+		String strTrigsAnswer2;
+		String strTrigsAnswer3;
 		String strShapesQuestion;
 		String strShapesAnswer1;
 		String strShapesAnswer2;
 		String strShapesAnswer3;
 		String strStart;
 		double dblScore;
+		String strAnswer;
+		int intCount;
 		
-		//Read Text Files
-		while(Linear.eof() == false){
-			intQuadraticsQuestion = Quadratics.readInt();
-			intQuadraticsAnswer1 = Quadratics.readInt();
-			intQuadraticsAnswer2 = Quadratics.readInt();
-			intQuadraticsAnswer3 = Quadratics.readInt();
-		}while(Trigs.eof() == false){
-			intTrigsQuestion = Trigs.readInt();
-			intTrigsAnswer1 = Trigs.readInt();
-			intTrigsAnswer2 = Trigs.readInt();
-			intTrigsAnswer3 = Trigs.readInt();
-		}while(Shapes.eof() == false){
-			strShapesQuestion = Shapes.readLine();
-			strShapesAnswer1 = Shapes.readLine();
-			strShapesAnswer2 = Shapes.readLine();
-			strShapesAnswer3 = Shapes.readLine();
-		}
+		//Initialize Variables
+		intCount = 0;
+		
+		//Arrays
+		String[] linearQuestions = new String[10];
+		String[][] linearAnswers = new String[10][3];
 		
 		//Menu Functions
 		con.println("Menu");
@@ -111,13 +100,19 @@ public class CPTMoses{
 						con.println("Score: "+(dblScore));
 						while(Linear.eof() == false){
 							strLinearQuestion = Linear.readLine();
-							intLinearAnswer1 = Linear.readInt();
-							strLinearAnswer2 = Linear.readLine();
-							intLinearAnswer3 = Linear.readInt();
+							strLinearAnswer = Linear.readLine();
+							strLinearAnswer = Linear.readLine();
+							strLinearAnswer = Linear.readLine();
 							con.println(strLinearQuestion);
-							con.println(intLinearAnswer1);
-							con.println(strLinearAnswer2);
-							con.println(intLinearAnswer3);
+							con.println("Please Enter Your Answer. Then Proceed With Enter Key. ");
+							strAnswer = con.readLine();
+							if(strAnswer.equalsIgnoreCase(strLinearAnswer)){
+								con.println("Congratulations, You Picked The Right Answer! +100 points");
+								con.println("Please Press c Then Enter To Proceed To The Next Question. ");
+							}else{
+								con.println("Oh no! You Picked The Wrong Answer... You Didn’t Get Any Points...");
+								con.println("Please Press c Then Enter To Proceed To The Next Question. ");
+							}
 						}
 					}
 				}else if(dblTestChoice == 2 || dblTestChoice == 2.){
@@ -130,6 +125,12 @@ public class CPTMoses{
 						con.println(strName);
 						con.println(strChoice);
 						con.println("Score: "+(dblScore));
+						while(Linear.eof() == false){
+							strQuadraticsQuestion = Quadratics.readLine();
+							strQuadraticsAnswer1 = Quadratics.readLine();
+							strQuadraticsAnswer2 = Quadratics.readLine();
+							strQuadraticsAnswer3 = Quadratics.readLine();
+						}
 					}
 				}else if(dblTestChoice == 3 || dblTestChoice == 3.){
 					strChoice = ("Trigonometry Tests");
@@ -141,6 +142,12 @@ public class CPTMoses{
 						con.println(strName);
 						con.println(strChoice);
 						con.println("Score: "+(dblScore));
+						while(Trigs.eof() == false){
+							strTrigsQuestion = Trigs.readLine();
+							strTrigsAnswer1 = Trigs.readLine();
+							strTrigsAnswer2 = Trigs.readLine();
+							strTrigsAnswer3 = Trigs.readLine();
+						}
 					}
 				}else if(dblTestChoice == 4 || dblTestChoice == 4.){
 					strChoice = ("Shapes Tests");
@@ -152,6 +159,12 @@ public class CPTMoses{
 						con.println(strName);
 						con.println(strChoice);
 						con.println("Score: "+(dblScore));
+						while(Shapes.eof() == false){
+							strShapesQuestion = Shapes.readLine();
+							strShapesAnswer1 = Shapes.readLine();
+							strShapesAnswer2 = Shapes.readLine();
+							strShapesAnswer3 = Shapes.readLine();
+						}
 					}
 				}
 				
