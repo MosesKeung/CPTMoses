@@ -29,7 +29,9 @@ public class CPTMoses{
 		double dblTestChoice;
 		String strChoice;
 		String strLinearQuestion;
-		String strLinearAnswer;
+		String strLinearAnswer1;
+		String strLinearAnswer2;
+		String strLinearAnswer3;
 		String strQuadraticsQuestion;
 		String strQuadraticsAnswer1;
 		String strQuadraticsAnswer2;
@@ -45,14 +47,13 @@ public class CPTMoses{
 		String strStart;
 		double dblScore;
 		String strAnswer;
-		int intCount;
-		
-		//Initialize Variables
-		intCount = 0;
+		String strContinue;
 		
 		//Arrays
-		String[] linearQuestions = new String[10];
-		String[][] linearAnswers = new String[10][3];
+		String strLinearQuestions[][] = new String[999][5];
+		String strQuadraticsQuestions[][] = new String[999][5];
+		String strTrigsQuestions[][] = new String[999][5];
+		String strShapesQuestions[][] = new String[999][5];
 		
 		//Menu Functions
 		con.println("Menu");
@@ -99,21 +100,46 @@ public class CPTMoses{
 						con.println(strChoice);
 						con.println("Score: "+(dblScore));
 						while(Linear.eof() == false){
-							strLinearQuestion = Linear.readLine();
-							strLinearAnswer = Linear.readLine();
-							strLinearAnswer = Linear.readLine();
-							strLinearAnswer = Linear.readLine();
-							con.println(strLinearQuestion);
-							con.println("Please Enter Your Answer. Then Proceed With Enter Key. ");
-							strAnswer = con.readLine();
-							if(strAnswer.equalsIgnoreCase(strLinearAnswer)){
-								con.println("Congratulations, You Picked The Right Answer! +100 points");
-								con.println("Please Press c Then Enter To Proceed To The Next Question. ");
-							}else{
-								con.println("Oh no! You Picked The Wrong Answer... You Didn’t Get Any Points...");
-								con.println("Please Press c Then Enter To Proceed To The Next Question. ");
-							}
+									strLinearQuestion = Linear.readLine();
+									strLinearAnswer1 = Linear.readLine();
+									strLinearAnswer2 = Linear.readLine();
+									strLinearAnswer3 = Linear.readLine();
+									strLinearQuestions[0][0] = (strLinearQuestion);
+									strLinearQuestions[0][1] = (strLinearAnswer1);
+									strLinearQuestions[0][2] = (strLinearAnswer2);
+									strLinearQuestions[0][3] = (strLinearAnswer3);
+									strLinearQuestions[0][4] = (int)(Math.random() * 100 + 1) + "";
+									con.println(strLinearQuestions[0][0]);
+									con.println("Please Enter Your Answer. Then Proceed With Enter Key. ");
+									strAnswer = con.readLine();
+									if(strAnswer.equalsIgnoreCase(strLinearAnswer1) || strAnswer.equalsIgnoreCase(strLinearAnswer2) || strAnswer.equalsIgnoreCase(strLinearAnswer3)){
+										dblScore += 100;
+										con.println("Congratulations, You Picked The Right Answer! +100 points");
+										con.println("Press C and Enter Key To Proceed To The Next Question. ");
+										strContinue = con.readLine();
+										if(strContinue.equalsIgnoreCase("c") || strContinue.equalsIgnoreCase("C")){
+											con.clear();
+											con.println(strName);
+											con.println(strChoice);
+											con.println("Score: "+(dblScore));
+										}
+									}else{
+										con.println("Oh no! You Picked The Wrong Answer... You Didn’t Get Any Points...");
+										con.println("Press C and Enter Key To Proceed To The Next Question. ");
+										strContinue = con.readLine();
+										if(strContinue.equalsIgnoreCase("c") || strContinue.equalsIgnoreCase("C")){
+											con.clear();
+											con.println(strName);
+											con.println(strChoice);
+											con.println("Score: "+(dblScore));
+										}
+									}
 						}
+						con.println("Congratulations, You Have Finished The Linear Tests. ");
+						con.println(strName+", Your Score Is "+dblScore);
+						HighScore.println("Player Name: "+strName);
+						HighScore.println("Score: "+dblScore);
+						HighScore.println("Test: Linear");
 					}
 				}else if(dblTestChoice == 2 || dblTestChoice == 2.){
 					strChoice = ("Quadratics Tests");
@@ -130,8 +156,44 @@ public class CPTMoses{
 							strQuadraticsAnswer1 = Quadratics.readLine();
 							strQuadraticsAnswer2 = Quadratics.readLine();
 							strQuadraticsAnswer3 = Quadratics.readLine();
+							strQuadraticsQuestions[0][0] = (strQuadraticsQuestion);
+							strQuadraticsQuestions[0][1] = (strQuadraticsAnswer1);
+							strQuadraticsQuestions[0][2] = (strQuadraticsAnswer2);
+							strQuadraticsQuestions[0][3] = (strQuadraticsAnswer3);
+							strQuadraticsQuestions[0][4] = (int)(Math.random() * 100 + 1) + "";
+							con.println(strQuadraticsQuestions[0][0]);
+							con.println("Please Enter Your Answer. Then Proceed With Enter Key. ");
+							strAnswer = con.readLine();
+							if(strAnswer.equalsIgnoreCase(strQuadraticsAnswer1) || strAnswer.equalsIgnoreCase(strQuadraticsAnswer2) || strAnswer.equalsIgnoreCase(strQuadraticsAnswer3)){
+								dblScore += 100;
+								con.println("Congratulations, You Picked The Right Answer! +100 points");
+								con.println("Press C and Enter Key To Proceed To The Next Question. ");
+								strContinue = con.readLine();
+								if(strContinue.equalsIgnoreCase("c") || strContinue.equalsIgnoreCase("C")){
+									con.clear();
+									con.println(strName);
+									con.println(strChoice);
+									con.println("Score: "+(dblScore));
+								}
+							}else{
+								con.println("Oh no! You Picked The Wrong Answer... You Didn’t Get Any Points...");
+								con.println("Press C and Enter Key To Proceed To The Next Question. ");
+								strContinue = con.readLine();
+								if(strContinue.equalsIgnoreCase("c") || strContinue.equalsIgnoreCase("C")){
+									con.clear();
+									con.println(strName);
+									con.println(strChoice);
+									con.println("Score: "+(dblScore));
+								}
+							}
 						}
+						con.println("Congratulations, You Have Finished The Linear Tests. ");
+						con.println(strName+", Your Score Is "+dblScore);
+						HighScore.println("Player Name: "+strName);
+						HighScore.println("Score: "+dblScore);
+						HighScore.println("Test: Linear");
 					}
+					
 				}else if(dblTestChoice == 3 || dblTestChoice == 3.){
 					strChoice = ("Trigonometry Tests");
 					con.clear();
@@ -147,7 +209,42 @@ public class CPTMoses{
 							strTrigsAnswer1 = Trigs.readLine();
 							strTrigsAnswer2 = Trigs.readLine();
 							strTrigsAnswer3 = Trigs.readLine();
+							strTrigsQuestions[0][0] = (strTrigsQuestion);
+							strTrigsQuestions[0][1] = (strTrigsAnswer1);
+							strTrigsQuestions[0][2] = (strTrigsAnswer2);
+							strTrigsQuestions[0][3] = (strTrigsAnswer3);
+							strTrigsQuestions[0][4] = (int)(Math.random() * 100 + 1) + "";
+							con.println(strTrigsQuestions[0][0]);
+							con.println("Please Enter Your Answer. Then Proceed With Enter Key. ");
+							strAnswer = con.readLine();
+							if(strAnswer.equalsIgnoreCase(strTrigsAnswer1) || strAnswer.equalsIgnoreCase(strTrigsAnswer2) || strAnswer.equalsIgnoreCase(strTrigsAnswer3)){
+								dblScore += 100;
+								con.println("Congratulations, You Picked The Right Answer! +100 points");
+								con.println("Press C and Enter Key To Proceed To The Next Question. ");
+								strContinue = con.readLine();
+								if(strContinue.equalsIgnoreCase("c") || strContinue.equalsIgnoreCase("C")){
+									con.clear();
+									con.println(strName);
+									con.println(strChoice);
+									con.println("Score: "+(dblScore));
+								}
+							}else{
+								con.println("Oh no! You Picked The Wrong Answer... You Didn’t Get Any Points...");
+								con.println("Press C and Enter Key To Proceed To The Next Question. ");
+								strContinue = con.readLine();
+								if(strContinue.equalsIgnoreCase("c") || strContinue.equalsIgnoreCase("C")){
+									con.clear();
+									con.println(strName);
+									con.println(strChoice);
+									con.println("Score: "+(dblScore));
+								}
+							}
 						}
+						con.println("Congratulations, You Have Finished The Linear Tests. ");
+						con.println(strName+", Your Score Is "+dblScore);
+						HighScore.println("Player Name: "+strName);
+						HighScore.println("Score: "+dblScore);
+						HighScore.println("Test: Linear");
 					}
 				}else if(dblTestChoice == 4 || dblTestChoice == 4.){
 					strChoice = ("Shapes Tests");
@@ -164,7 +261,42 @@ public class CPTMoses{
 							strShapesAnswer1 = Shapes.readLine();
 							strShapesAnswer2 = Shapes.readLine();
 							strShapesAnswer3 = Shapes.readLine();
+							strShapesQuestions[0][0] = (strShapesQuestion);
+							strShapesQuestions[0][1] = (strShapesAnswer1);
+							strShapesQuestions[0][2] = (strShapesAnswer2);
+							strShapesQuestions[0][3] = (strShapesAnswer3);
+							strShapesQuestions[0][4] = (int)(Math.random() * 100 + 1) + "";
+							con.println(strShapesQuestions[0][0]);
+							con.println("Please Enter Your Answer. Then Proceed With Enter Key. ");
+							strAnswer = con.readLine();
+							if(strAnswer.equalsIgnoreCase(strShapesAnswer1) || strAnswer.equalsIgnoreCase(strShapesAnswer2) || strAnswer.equalsIgnoreCase(strShapesAnswer3)){
+								dblScore += 100;
+								con.println("Congratulations, You Picked The Right Answer! +100 points");
+								con.println("Press C and Enter Key To Proceed To The Next Question. ");
+								strContinue = con.readLine();
+								if(strContinue.equalsIgnoreCase("c") || strContinue.equalsIgnoreCase("C")){
+									con.clear();
+									con.println(strName);
+									con.println(strChoice);
+									con.println("Score: "+(dblScore));
+								}
+							}else{
+								con.println("Oh no! You Picked The Wrong Answer... You Didn’t Get Any Points...");
+								con.println("Press C and Enter Key To Proceed To The Next Question. ");
+								strContinue = con.readLine();
+								if(strContinue.equalsIgnoreCase("c") || strContinue.equalsIgnoreCase("C")){
+									con.clear();
+									con.println(strName);
+									con.println(strChoice);
+									con.println("Score: "+(dblScore));
+								}
+							}
 						}
+						con.println("Congratulations, You Have Finished The Linear Tests. ");
+						con.println(strName+", Your Score Is "+dblScore);
+						HighScore.println("Player Name: "+strName);
+						HighScore.println("Score: "+dblScore);
+						HighScore.println("Test: Linear");
 					}
 				}
 				
