@@ -1,1 +1,40 @@
-1. 
+1. What Shape Has 3 Sides? 
+Triangle
+Equilateral Triangle
+Isosceles Triangle
+2. What Shape Has 4 Equal Sides? 
+Square
+Rhombus
+Diamond
+3. What Shape Has 4 Right Angles? 
+Rectangle
+Square
+Parallelogram
+4. What Shape Has No Sides? 
+Circle
+Ellipse
+Oval
+5. What Shape Has 1 Pair of Parallel Sides? 
+Trapezoid
+Right Trapezoid
+Isosceles Trapezoid
+6. What Shape Has 5 Sides? 
+Pentagon
+Regular Pentagon
+Irregular Pentagon
+7. What Shape Has 6 Sides? 
+Hexagon
+Regular Hexagon
+Equilateral Hexagon
+8. What Shape Has Opposite Sides That Are Parallel? 
+Parallelogram
+Rectangle
+Rhombus
+9. What shape has 8 sides? 
+Octagon
+Regular Octagon
+Irregular Octagon
+10. Name 1 of The 3 Types of Angles
+Acute
+Right
+Obtuse
