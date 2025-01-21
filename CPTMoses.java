@@ -431,7 +431,7 @@ public class CPTMoses{
 			con.setTextColor(Color.BLACK);
 			BufferedImage imgRick = con.loadImage("rick.jpg");
 			con.drawImage(imgRick,0,0);
-			for(intCount = 0; intCount < 10; intCount++){
+			for(intCount = 0; intCount < 4; intCount++){
 				con.println("Never Gonna Give You Up");
 				con.sleep(1000);
 				con.println("Never Gonna Let You Down");
